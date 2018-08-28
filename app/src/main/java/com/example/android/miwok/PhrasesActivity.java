@@ -37,5 +37,10 @@ public class PhrasesActivity extends AppCompatActivity {
 //        list.setBackgroundColor(getResources().getColor(R.color.category_phrases));
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        AudioPlay.releaseMediaPlayer();
+    }
 
 }

@@ -36,5 +36,10 @@ public class NumbersActivity extends AppCompatActivity {
 //        list.setBackgroundColor(getResources().getColor());
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        AudioPlay.releaseMediaPlayer();
+    }
 
 }

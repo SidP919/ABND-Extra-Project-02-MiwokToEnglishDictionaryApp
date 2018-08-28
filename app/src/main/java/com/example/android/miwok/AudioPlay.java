@@ -2,15 +2,15 @@ package com.example.android.miwok;
 
 import android.content.Context;
 import android.media.MediaPlayer;
-import android.media.SoundPool;
 
 public class AudioPlay {
 
     public static MediaPlayer mediaPlayer;
     public static boolean isplayingAudio = false;
-    private static SoundPool soundPool;
+//    private static SoundPool soundPool; //Deprecated API
 
     public static void playAudio(Context c, int id) {
+        releaseMediaPlayer();
         mediaPlayer = MediaPlayer.create(c, id);
 //        soundPool = new SoundPool(4, AudioManager.STREAM_MUSIC, 100);
         if (!mediaPlayer.isPlaying()) {
@@ -20,9 +20,15 @@ public class AudioPlay {
     }
 
     public static void changeSong(Context c, int id) {
-        mediaPlayer.stop();
-        mediaPlayer.release();
+        releaseMediaPlayer();
         isplayingAudio = false;
         playAudio(c, id);
+    }
+
+    public static void releaseMediaPlayer() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }

@@ -35,5 +35,9 @@ public class ColorsActivity extends AppCompatActivity {
 //        list.setBackgroundColor(getResources().getColor(R.color.category_colors));
     }
 
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        AudioPlay.releaseMediaPlayer();
+    }
 }

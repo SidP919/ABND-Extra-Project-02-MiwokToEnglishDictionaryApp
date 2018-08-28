@@ -16,6 +16,5 @@ public class MyListViewItemClickListener implements AdapterView.OnItemClickListe
         } else if (AudioPlay.isplayingAudio) {
             AudioPlay.changeSong(view.getContext(), w.getAudioResourceId());
         }
-
     }
 }

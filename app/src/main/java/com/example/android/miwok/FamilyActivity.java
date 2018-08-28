@@ -35,6 +35,11 @@ public class FamilyActivity extends AppCompatActivity {
         list.setOnItemClickListener(new MyListViewItemClickListener());
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        AudioPlay.releaseMediaPlayer();
+    }
 
 }
 
