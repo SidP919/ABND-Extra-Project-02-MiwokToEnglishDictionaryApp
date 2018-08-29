@@ -40,7 +40,6 @@ public class PhrasesActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        AudioPlay.releaseMediaPlayer();
     }
 
 }

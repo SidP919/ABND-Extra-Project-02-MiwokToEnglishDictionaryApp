@@ -1,5 +1,7 @@
 package com.example.android.miwok;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -11,10 +13,8 @@ public class MyListViewItemClickListener implements AdapterView.OnItemClickListe
 //        Toast.makeText(view.getContext()
 //                , w.getMiwokTrans()
 //                , Toast.LENGTH_SHORT).show();
-        if (!AudioPlay.isplayingAudio) {
-            AudioPlay.playAudio(view.getContext(), w.getAudioResourceId());
-        } else if (AudioPlay.isplayingAudio) {
-            AudioPlay.changeSong(view.getContext(), w.getAudioResourceId());
-        }
+        // Create and setup the {@link AudioManager} to request audio focus
+        AudioPlay.mAudioManager = (AudioManager) view.getContext().getSystemService(Context.AUDIO_SERVICE);
+        AudioPlay audioPlay = new AudioPlay(view.getContext(), w.getAudioResourceId());
     }
 }

@@ -44,9 +44,14 @@
             tools:text="One" />
     </LinearLayout>
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="?android:selectableItemBackground">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingRight="16dp"
+        android:padding="20dp"
         android:src="@drawable/play_pronunciation" />
+    </FrameLayout>
 </LinearLayout>
