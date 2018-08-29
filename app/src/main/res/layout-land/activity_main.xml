@@ -13,23 +13,23 @@
         android:layout_weight="1">
 
         <FrameLayout
-            style="@style/FrameLayoutStyle"
+            style="@style/FrameLayoutStyleLANDSCAPE"
             android:background="@color/category_numbers">
 
             <TextView
                 android:id="@+id/numbers"
-                style="@style/CategoryStyle"
+                style="@style/CategoryStyleLANDSCAPE"
                 android:background="?android:attr/selectableItemBackground"
                 android:text="@string/category_numbers" />
         </FrameLayout>
 
         <FrameLayout
-            style="@style/FrameLayoutStyle"
+            style="@style/FrameLayoutStyleLANDSCAPE"
             android:background="@color/category_family">
 
             <TextView
                 android:id="@+id/family"
-                style="@style/CategoryStyle"
+                style="@style/CategoryStyleLANDSCAPE"
                 android:background="?android:selectableItemBackground"
                 android:text="@string/category_family" />
         </FrameLayout>
@@ -55,23 +55,23 @@
         android:layout_weight="1">
 
         <FrameLayout
-            style="@style/FrameLayoutStyle"
+            style="@style/FrameLayoutStyleLANDSCAPE"
             android:background="@color/category_colors">
 
             <TextView
                 android:id="@+id/colors"
-                style="@style/CategoryStyle"
+                style="@style/CategoryStyleLANDSCAPE"
                 android:background="?android:selectableItemBackground"
                 android:text="@string/category_colors" />
         </FrameLayout>
 
         <FrameLayout
-            style="@style/FrameLayoutStyle"
+            style="@style/FrameLayoutStyleLANDSCAPE"
             android:background="@color/category_phrases">
 
             <TextView
                 android:id="@+id/phrases"
-                style="@style/CategoryStyle"
+                style="@style/CategoryStyleLANDSCAPE"
                 android:background="?android:selectableItemBackground"
                 android:text="@string/category_phrases" />
         </FrameLayout>
@@ -79,14 +79,14 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight=".1"
+        android:layout_height="0dp"
+        android:layout_weight=".35"
         android:background="@color/primary_color">
 
         <TextView
             android:id="@+id/MainActivity_TextView_Developer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="?android:selectableItemBackground"
             android:gravity="center"
