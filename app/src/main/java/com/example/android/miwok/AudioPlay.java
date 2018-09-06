@@ -40,6 +40,12 @@ public class AudioPlay {
                 AudioPlay.mediaPlayer.start();
                 isplayingAudio = true;
                 Log.d(TAG, "focus Gained");
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        releaseMediaPlayer();
+                    }
+                });
             } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                 // The AUDIOFOCUS_LOSS case means we've lost audio focus and
                 // Stop playback and clean up resources
@@ -69,6 +75,10 @@ public class AudioPlay {
                 changeAudio(context, id);
             }
         }
+    }
+
+    public AudioPlay() {
+        releaseMediaPlayer2();
     }
 
     private void playAudio(Context c, int id) {
@@ -101,6 +111,18 @@ public class AudioPlay {
             // unregisters the AudioFocusChangeListener so we don't get anymore callbacks.
             mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
             Log.d(TAG, "mediaPlayer released");
+        }
+    }
+
+    public void releaseMediaPlayer2() {
+        if (mediaPlayer != null) {
+            mediaPlayer.seekTo(0);
+            mediaPlayer.pause();
+            isplayingAudio = false;
+
+            // Regardless of whether or not we were granted audio focus, abandon it. This also
+            // unregisters the AudioFocusChangeListener so we don't get anymore callbacks.
+            Log.d(TAG, "mediaPlayer released 002");
         }
     }
 }

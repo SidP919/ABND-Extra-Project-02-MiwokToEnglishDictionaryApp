@@ -37,27 +37,31 @@ public class MainActivity extends AppCompatActivity {
     private class MyListener implements View.OnClickListener {
         @Override
         public void onClick(View view){
-                switch (view.getId()){
-                    case R.id.numbers : startActivity(new Intent(MainActivity.this, NumbersActivity.class));
-                        break;
-                    case R.id.family : startActivity(new Intent(MainActivity.this, FamilyActivity.class));
-                        break;
-                    case R.id.colors : startActivity(new Intent(MainActivity.this, ColorsActivity.class));
-                        break;
-                    case R.id.phrases : startActivity(new Intent(MainActivity.this, PhrasesActivity.class));
-                        break;
-                    case R.id.MainActivity_TextView_Developer: {
-                        final TextView dedicatedView = findViewById(R.id.MainActivity_TextView_DedicatedTo);
-                        dedicatedView.setVisibility(View.VISIBLE);
-                        final Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                dedicatedView.setVisibility(View.GONE);
-                            }
-                        }, 1200);
+//                switch (view.getId()){
+//                    case R.id.numbers : startActivity(new Intent(MainActivity.this, NumbersActivity.class));
+//                        break;
+//                    case R.id.family : startActivity(new Intent(MainActivity.this, FamilyActivity.class));
+//                        break;
+//                    case R.id.colors : startActivity(new Intent(MainActivity.this, ColorsActivity.class));
+//                        break;
+//                    case R.id.phrases : startActivity(new Intent(MainActivity.this, PhrasesActivity.class));
+//                        break;
+//                    case R.id.MainActivity_TextView_Developer: { }
+//                    break;
+//            }
+
+            if (view.getId() == R.id.MainActivity_TextView_Developer) {
+                final TextView dedicatedView = findViewById(R.id.MainActivity_TextView_DedicatedTo);
+                dedicatedView.setVisibility(View.VISIBLE);
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dedicatedView.setVisibility(View.GONE);
                     }
-                    break;
+                }, 1200);
+            } else {
+                startActivity(new Intent(MainActivity.this, CategoryActivity.class));
             }
         }
     }
